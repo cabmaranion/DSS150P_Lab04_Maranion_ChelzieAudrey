@@ -1,0 +1,8 @@
+         run_id          | status  |                                          message                                           | rows_inserted 
+-------------------------+---------+--------------------------------------------------------------------------------------------+---------------
+ 20261013T171043Z-1fd9ac | success |                                                                                            |         15036
+ 20261013T170916Z-3fe91c | failed  | new row for relation "pipeline_runs" violates check constraint "pipeline_runs_status_check |              
+ 20261013T170607Z-545f61 | success |                                                                                            |             0
+ 20261013T170530Z-f825be | success |                                                                                            |             0
+(4 rows)
+

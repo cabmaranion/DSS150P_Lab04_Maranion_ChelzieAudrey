@@ -65,3 +65,20 @@ Tested 2026-10-13. In `tests/test_ingest.py` I changed the expected number of di
 from 3 to 2, and pytest failed with `assert 3 == 2`. In `src/transform.py` I let the value 2
 pass the 0/1 check, and `test_bad_feature_value_is_quarantined` failed. After restoring both,
 all 6 tests passed.
+
+## Why ON CONFLICT DO NOTHING is enough
+
+The row key is a hash of the row's values plus a copy number. If a row's content changed, its
+hash would change, so it would get a different key and be inserted as a new row. A conflict can
+therefore only happen when the same row with identical content is already stored, so there is
+nothing to update. In Lab 3 the key was an order ID, which stays the same when the content
+changes, so DO UPDATE was needed there.
+
+## Evidence: database failure and recovery
+
+Tested 2026-10-13. I emptied the table and changed the audit status in `src/storage.py` to a
+value the schema does not allow. The load failed with a check constraint error, the table held
+0 rows afterwards (the whole load rolled back), and the audit table recorded a `failed` run with
+the error message. After restoring the status, the same command inserted all 15,036 rows.
+
+
