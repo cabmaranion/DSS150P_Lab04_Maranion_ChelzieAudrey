@@ -48,3 +48,14 @@ ingests again instead of trusting data that was never saved. The cost is repeate
 is safe. If the raw file is deleted later, the checkpoint check also notices (`batch_ok`)
 and re-ingests. Tested on 2026-10-13 by deleting the raw file and rerunning.
 
+## Evidence: hash check stops a wrong dataset
+
+Tested 2026-10-13. I changed one character of the `sha256:` line in
+`metadata/source_manifest.yml`. The run stopped with "Data hash does not match the manifest.
+Stop." and exit code 1. After restoring the line, the run passed with exit code 0.
+
+## Why the curated file keeps the original row order
+
+`train_test_split` picks rows by position using the seed. With the same seed and a different
+row order, different rows would land in the test set and the metrics would change.
+

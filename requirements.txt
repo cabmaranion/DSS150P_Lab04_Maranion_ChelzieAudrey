@@ -4,3 +4,4 @@ scikit-learn==1.9.0
 xgboost==3.3.0
 scipy==1.18.0
 joblib==1.5.3
+pytest==9.1.1
