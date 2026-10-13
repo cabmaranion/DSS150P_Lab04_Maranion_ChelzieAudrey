@@ -1,6 +1,8 @@
 import json
 import sys
 from pathlib import Path
+from src.ingest import ingest
+from src.transform import stage, curate
 
 import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
@@ -25,6 +27,9 @@ F1_TOL = 0.001
 AUC_TOL = 0.001
 CELL_TOL = 2
 
+ingest()
+stage()
+curate()
 # The data hash is checked inside load_split and stops the run if it is wrong
 X_train, X_test, y_train, y_test = load_split()
 
