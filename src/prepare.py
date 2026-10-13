@@ -23,22 +23,21 @@ def expected_hash(manifest_path):
                 return line.split(":", 1)[1].strip()
 
 
-if sha256_of(DATA).lower() != expected_hash(MANIFEST).lower():
-    raise SystemExit("Data hash does not match the manifest. Stop.")
-print("data hash OK")
+def load_split():
+    if sha256_of(DATA).lower() != expected_hash(MANIFEST).lower():
+        raise SystemExit("Data hash does not match the manifest. Stop.")
+    print("data hash OK")
 
-df = pd.read_csv(DATA, dtype={COL: str})
+    df = pd.read_csv(DATA, dtype={COL: str})
+    df[COL] = df[COL].replace("?", "0").astype(int)
 
-df[COL] = df[COL].replace("?", "0").astype(int)       # replace "?" with "0"
-X = df.drop(columns=["class"])
-y = df["class"].map({"S": 1, "B": 0})  # S -> 1, B -> 0
+    X = df.drop(columns=["class"])
+    y = df["class"].map({"S": 1, "B": 0})
+    return train_test_split(X, y, test_size=0.2, random_state=SEED, stratify=y)
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=SEED, stratify=y
-)
 
-print("train:", X_train.shape)
-print("test:", X_test.shape)
-print("test class counts:")
-print(y_test.value_counts())
-
+if __name__ == "__main__":
+    X_train, X_test, y_train, y_test = load_split()
+    print("train:", X_train.shape)
+    print("test:", X_test.shape)
+    print(y_test.value_counts())

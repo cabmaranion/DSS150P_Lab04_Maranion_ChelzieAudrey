@@ -1,0 +1,40 @@
+{
+  "n_jobs": -1,
+  "tolerance": 0.001,
+  "metrics": {
+    "accuracy": 0.9913563829787234,
+    "precision": 0.9891891891891892,
+    "recall": 0.987410071942446,
+    "f1": 0.9882988298829883,
+    "roc_auc": 0.9992939983456273,
+    "pr_auc": 0.9987428156748058,
+    "log_loss": 0.030683020129799843,
+    "confusion_matrix": [
+      [
+        1884,
+        12
+      ],
+      [
+        14,
+        1098
+      ]
+    ]
+  },
+  "baseline": {
+    "f1": 0.9865,
+    "roc_auc": 0.9991,
+    "confusion_matrix": [
+      [
+        1882,
+        14
+      ],
+      [
+        16,
+        1096
+      ]
+    ]
+  },
+  "f1_ok": false,
+  "auc_ok": true,
+  "confusion_matrix_identical": false
+}
