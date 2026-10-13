@@ -31,7 +31,7 @@ def stage():
     good[feature_cols] = numeric[~invalid].astype(int)
     good["is_malware"] = good["class"].map({"S": 1, "B": 0})
     assert good["row_key"].is_unique, "row keys are not unique"
-    assert len(good) + len(quarantine) == len(raw), "rows were lost"
+    assert len(good) + len(quarantine) == saved["rows"], "rows were lost"
 
     STAGING_DIR.mkdir(parents=True, exist_ok=True)
     good.to_csv(STAGING_DIR / "drebin_staged.csv", index=False)
@@ -47,5 +47,3 @@ def stage():
 
 if __name__ == "__main__":
     stage()
-
-    

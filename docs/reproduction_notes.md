@@ -40,3 +40,11 @@ reading the exit code automatically.
 A Layer 1 failure gets its own code because it makes the comparison invalid. The data side is
 wrong, so a passing XGBoost result would be meaningless.
 
+## Design decision: checkpoint is written last
+
+The checkpoint promises that the raw data is safely saved. It is written only after the raw
+file is saved. If the script crashes in between, no checkpoint exists, so the next run
+ingests again instead of trusting data that was never saved. The cost is repeated work, which
+is safe. If the raw file is deleted later, the checkpoint check also notices (`batch_ok`)
+and re-ingests. Tested on 2026-10-13 by deleting the raw file and rerunning.
+
