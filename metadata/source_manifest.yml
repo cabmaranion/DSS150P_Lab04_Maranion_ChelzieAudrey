@@ -2,8 +2,8 @@ dataset: drebin_dataset.csv
 description: Subset of the DREBIN Android malware dataset, binary feature flags
 source_doi: 10.17632/bpkksc9v5s.7
 source_url: https://doi.org/10.17632/bpkksc9v5s.7
-dataset_version_downloaded: TODO (open the Mendeley page and copy the version number you downloaded)
-license: TODO (copy the license shown on the Mendeley page)
+dataset_version_downloaded: Version 7
+license: CC BY 4.0
 retrieved_on: 2026-10-13
 file_size_bytes: 6514978
 sha256: 710F2C11B0CAD04C36F56DD16398127FEB697FD99E8EFA7F75890B792FBA3AD5
@@ -19,3 +19,4 @@ how_to_obtain:
   - Check the SHA-256 hash matches the sha256 value above.
   - Check the file has 15,036 rows, with 9,476 B and 5,560 S in the class column.
 notes: The original project never recorded a hash, so this hash is the reference from the retrieval date above. Matching baseline row and class counts support that it is the same data.
+
