@@ -1,0 +1,12 @@
+rows, columns: (15036, 216)
+class counts:
+class
+B    9476
+S    5560
+Name: count, dtype: int64
+total missing values: 0
+exact duplicate rows: 7775
+columns that are not plain 0/1:
+  TelephonyManager.getSimCountryIso {'1', '?', '0'}
+duplicates counting class: 7775
+duplicates ignoring class: 7778
