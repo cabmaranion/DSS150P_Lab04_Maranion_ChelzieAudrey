@@ -57,7 +57,7 @@ to be within 2 counts when versions differ, but that clause is not in the commit
 
 **What changed it:** The rerun did not match exactly, although the library versions, data
 hash, seed and parameters were the same. The logistic regression control matched the original
-exactly in the run I made (accuracy 0.9764, F1 0.9683, ROC-AUC 0.9961, [[1853, 43], [28, 1084]]).
+exactly in two run I made (accuracy 0.9764, F1 0.9683, ROC-AUC 0.9961, [[1853, 43], [28, 1084]]).
 In a sweep over n_jobs = 1, 2, 4, 8 and -1 (same seed, versions, data and parameters), F1 ranged
 from 0.9852 to 0.9883, ROC-AUC from 0.9991 to 0.9993, and confusion-matrix cells differed from
 the baseline by up to 3 counts. So thread count changes XGBoost's predictions, and exact XGBoost

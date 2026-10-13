@@ -1,0 +1,36 @@
+{
+  "n_jobs": 1,
+  "layer1": {
+    "train_shape": true,
+    "test_shape": true,
+    "test_class_counts": true,
+    "lr_control": true
+  },
+  "layer2": {
+    "f1": true,
+    "roc_auc": true,
+    "cells": true
+  },
+  "f1": 0.9873873873873874,
+  "roc_auc": 0.999226647163282,
+  "confusion_matrix": [
+    [
+      1884,
+      12
+    ],
+    [
+      16,
+      1096
+    ]
+  ],
+  "lr_confusion_matrix": [
+    [
+      1853,
+      43
+    ],
+    [
+      28,
+      1084
+    ]
+  ]
+}
