@@ -1,13 +1,14 @@
 import json
 import sys
 from pathlib import Path
-from src.ingest import ingest
-from src.transform import stage, curate
 
 import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score, roc_auc_score, confusion_matrix
 
+from src.ingest import ingest
+from src.transform import stage, curate
+from src.storage import load_curated
 from src.prepare import load_split, SEED
 
 N_JOBS = 1
@@ -27,10 +28,12 @@ F1_TOL = 0.001
 AUC_TOL = 0.001
 CELL_TOL = 2
 
+# Build the layers first. Ingestion checks the source hash and stops if it is wrong.
 ingest()
 stage()
 curate()
-# The data hash is checked inside load_split and stops the run if it is wrong
+
+# load_split also checks the ingested hash against the manifest
 X_train, X_test, y_train, y_test = load_split()
 
 # Layer 1: exact checks on the data side
@@ -77,9 +80,11 @@ with open("outputs/reproduction_report.json", "w", encoding="utf-8") as f:
                "f1": f1, "roc_auc": auc, "confusion_matrix": cm,
                "lr_confusion_matrix": lr_cm}, f, indent=2)
 
+# Load into PostgreSQL only when both checks pass
+if l1_pass and l2_pass:
+    load_curated()
+
 if not l1_pass:
     sys.exit(2)
 if not l2_pass:
     sys.exit(3)
-
-    
