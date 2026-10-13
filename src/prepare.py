@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 
 SEED = 246112165
 DATA = "data/drebin_dataset.csv"
-MANIFEST = "docs/source_manifest.yml"
+MANIFEST = "metadata/source_manifest.yml"
 COL = "TelephonyManager.getSimCountryIso"
 
 

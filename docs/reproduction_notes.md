@@ -33,5 +33,10 @@ changed (1, 2, 4, 8 and -1). Full results are in `docs/baseline.md` and in
 | 2 | Layer 1 failed (shapes, class counts, or the logistic regression control) | The comparison is invalid, even if Layer 2 printed PASS |
 | 3 | Layer 1 passed, Layer 2 failed | The data side is sound, so investigate the XGBoost result (seeds, `n_jobs`, versions) before reporting |
 
+The hash mismatch shares code 1 with crashes on purpose. No comparison is made in either case,
+and the printed message tells them apart. A separate code can be added if something starts
+reading the exit code automatically.
+
 A Layer 1 failure gets its own code because it makes the comparison invalid. The data side is
 wrong, so a passing XGBoost result would be meaningless.
+

@@ -5,7 +5,7 @@
 - Not stored in the repo. It must be downloaded from the source.
 - Shape: 15,036 rows, 216 columns (215 binary features plus `class`)
 - Classes: 9,476 benign (B), 5,560 malware (S), about 63/37
-- SHA-256 of the file I downloaded: see `docs/source_manifest.yml`
+- SHA-256 of the file I downloaded: see `metadata/source_manifest.yml`
 
 ## Task
 - Binary classification. Malware = 1 (S), benign = 0 (B)
