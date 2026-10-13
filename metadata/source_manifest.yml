@@ -2,6 +2,17 @@ dataset: drebin_dataset.csv
 description: Subset of the DREBIN Android malware dataset, binary feature flags
 source_doi: 10.17632/bpkksc9v5s.7
 source_url: https://doi.org/10.17632/bpkksc9v5s.7
+dataset_title: Android Malware Analysis
+published: 2026-05-20
+authors:
+  - Md Sadman Haque
+  - Md Sakhawat Hossain
+  - Robiul Awoul Robin
+  - Asma Sadia Tarisha
+  - Suman Ahmmed
+  - Jannatun Noor Mukta
+citation: 'Haque, Md Sadman; Hossain, Md Sakhawat; Robin, Robiul Awoul; Tarisha, Asma Sadia; Ahmmed, Suman; Mukta, Jannatun Noor (2026), "Android Malware Analysis", Mendeley Data, V7, doi: 10.17632/bpkksc9v5s.7'
+attribution: Credit the authors above when sharing results (CC BY 4.0)
 dataset_version_downloaded: 7
 license: CC BY 4.0
 retrieved_on: 2026-10-13
@@ -15,8 +26,8 @@ class_counts:
 stored_in_repo: false
 how_to_obtain:
   - Open the source_url above and download the dataset files.
-  - Take drebin_dataset.csv and place it in the data/ folder of this repo.
+  - Take drebin_dataset.csv and place it in the data/source/ folder of this repo.
   - Check the SHA-256 hash matches the sha256 value above.
   - Check the file has 15,036 rows, with 9,476 B and 5,560 S in the class column.
-notes: The original project never recorded a hash, so this hash is the reference from the retrieval date above. Matching baseline row and class counts support that it is the same data.
+notes: The Mendeley page describes a collection of three datasets (CIC-AndMal2017, CIC-MalDroid2020 and Drebin) and does not state this file's name or row count. The hash and the row and class counts here come from my own checks and match the original project's baseline. The original project never recorded a hash, so this hash is the reference from the retrieval date above.
 
