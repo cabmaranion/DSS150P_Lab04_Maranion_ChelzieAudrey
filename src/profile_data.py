@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("data/drebin_dataset.csv", dtype={"TelephonyManager.getSimCountryIso": str})
+df = pd.read_csv("data/source/drebin_dataset.csv", dtype={"TelephonyManager.getSimCountryIso": str})
 
 print("rows, columns:", df.shape)
 print("class counts:")
@@ -17,4 +17,3 @@ for col in df.columns:
 features = df.drop(columns="class")
 print("duplicates counting class:", df.duplicated().sum())
 print("duplicates ignoring class:", features.duplicated().sum())
-

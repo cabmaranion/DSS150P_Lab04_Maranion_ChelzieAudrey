@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 SEED = 246112165
-DATA = "data/drebin_dataset.csv"
+DATA = "data/source/drebin_dataset.csv"
 MANIFEST = "metadata/source_manifest.yml"
 COL = "TelephonyManager.getSimCountryIso"
 

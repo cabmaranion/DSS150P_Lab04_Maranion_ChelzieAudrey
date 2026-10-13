@@ -1,5 +1,11 @@
-data/drebin_dataset.csv
+data/source/*.csv
+data/raw/
+data/staging/
+data/curated/
+data/partitioned/
+data/quarantine/
+outputs/model/
+.env
 .venv/
 __pycache__/
 *.pyc
-.env
