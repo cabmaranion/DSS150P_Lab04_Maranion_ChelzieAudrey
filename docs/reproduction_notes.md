@@ -59,3 +59,9 @@ Stop." and exit code 1. After restoring the line, the run passed with exit code 
 `train_test_split` picks rows by position using the seed. With the same seed and a different
 row order, different rows would land in the test set and the metrics would change.
 
+## Evidence: tests catch bad data and wrong rules
+
+Tested 2026-10-13. In `tests/test_ingest.py` I changed the expected number of distinct keys
+from 3 to 2, and pytest failed with `assert 3 == 2`. In `src/transform.py` I let the value 2
+pass the 0/1 check, and `test_bad_feature_value_is_quarantined` failed. After restoring both,
+all 6 tests passed.
